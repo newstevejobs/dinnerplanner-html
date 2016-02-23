@@ -13,12 +13,12 @@ var View4 = function (container, model) {
 
 	this.update = function(obj) {
 		this.numberOfGuests.html(model.getNumberOfGuests());
-		this.showBigDish(id);		
+		this.showBigDish(model.getCurrentDishID());		
 		this.showMenu();
 	}
 
-	this.showBigDish = function(id) {
-		var bigDish = model.getDish(id);
+	this.showBigDish = function() {
+		var bigDish = model.getDish(model.getCurrentDishID());
 		var bigImg = "";
 		bigImg += "<img src='images/" + bigDish.image + "'class='storbild'>";
 		this.getTitleName.html(bigDish.name);
@@ -49,7 +49,5 @@ var View4 = function (container, model) {
 		
 	}
 
-	id = //det vi får in
-	this.showBigDish(id);
-	this.pending(id)
+	this.showBigDish(model.getCurrentDishID());
 }

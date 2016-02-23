@@ -4,7 +4,7 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	this.guests = 4; 		//attribut till klassen som har värdet gäster
-	this.currentDishID = 0; //ID för den aktuella rätten
+	this.currentDishID = 1; //ID för den aktuella rätten
 	this.selectedMenu = []; //lista med valda rätter
 	var obsArray = [];
 

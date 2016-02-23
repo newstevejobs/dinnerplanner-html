@@ -2,15 +2,11 @@
 var View3 = function (container, model) {
 	this.getDish = container.find(".mat");
 	this.search = container.find("#search_create_new");
-	this.valStarter = container.find("#valStarter");
-	this.valMain = container.find("#valMain");
-	this.valDessert = container.find("#valDessert");
-	this.container = container;
+
 
 	model.addObserver(this);
 
 	this.update = function(obj) {
-		this.getCurrentDishID();
 	}
 
 	//View 3 där småkvadraterna raddas upp för main, starter lr dessert!
@@ -23,12 +19,17 @@ var View3 = function (container, model) {
 			this.getDish.html(dish);
 
 			var nummer = kategori[i].id;
-			this.nummer = container.find("#" + kategori[i].id);
-
 			list.push(nummer);
 			}
+
+		for (var i = 0; i<list.length; i++){
+			var idDish = list[i];
+			
+			var pointer = "pointer" + i;
+			this.pointer = container.find("#" + idDish);
+		}
 		return list;
+		
 	}
-	
 }
 
