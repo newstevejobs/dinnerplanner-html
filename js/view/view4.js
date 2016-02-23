@@ -8,40 +8,32 @@ var View4 = function (container, model) {
 	this.dishPrice = container.find("#dish_price");
 	this.fullMenu = container.find(".titta");
 
-
-	//this.chosenDish = vi behöver skicka med ID:et på något sätt (förmodligen i controller 3 vid klick på någon rätt, då sker anropet i den rutan)
-
 	this.numberOfGuests.html(model.getNumberOfGuests());
-
 	model.addObserver(this);
 
 	this.update = function(obj) {
 		this.numberOfGuests.html(model.getNumberOfGuests());
-		this.dishPrice.html(model.getDishPrice(bigDish.id)*model.getNumberOfGuests());
-		var dishIngri = bigDish.ingredients;
-		var tabledata = "";
-		for (var i=0; i<dishIngri.length; i++){
-			tabledata += "<tr class='table'><td>" + dishIngri[i].quantity * model.getNumberOfGuests() + "</td><td>" + dishIngri[i].unit + "</td><td>"+ dishIngri[i].name + "</td><td>SEK</td><td>" + dishIngri[i].price * model.getNumberOfGuests() + "</td> </tr>";
-			this.getTable.html(tabledata);
-		}
+		this.showBigDish(id);		
 		this.showMenu();
 	}
 
-	var bigDish = model.getDish(1);
-			var bigImg = "";
-			bigImg += "<img src='images/" + bigDish.image + "'class='storbild'>";
-			this.getTitleName.html(bigDish.name);
-			this.getBigImg.html(bigImg);
+	this.showBigDish = function(id) {
+		var bigDish = model.getDish(id);
+		var bigImg = "";
+		bigImg += "<img src='images/" + bigDish.image + "'class='storbild'>";
+		this.getTitleName.html(bigDish.name);
+		this.getBigImg.html(bigImg);
 
-	var dishIngri = bigDish.ingredients;
-		var tabledata = "";
-		for (var i=0; i<dishIngri.length; i++){
-			tabledata += "<tr class='table'><td>" + dishIngri[i].quantity * model.getNumberOfGuests() + "</td><td>" + dishIngri[i].unit + "</td><td>"+ dishIngri[i].name + "</td><td>SEK</td><td>" + dishIngri[i].price * model.getNumberOfGuests() + "</td> </tr>";
-			this.getTable.html(tabledata);
-		}
+		var dishIngri = bigDish.ingredients;
+			var tabledata = "";
+			for (var i=0; i<dishIngri.length; i++){
+				tabledata += "<tr class='table'><td>" + dishIngri[i].quantity * model.getNumberOfGuests() + "</td><td>" + dishIngri[i].unit + "</td><td>"+ dishIngri[i].name + "</td><td>SEK</td><td>" + dishIngri[i].price * model.getNumberOfGuests() + "</td> </tr>";
+				this.getTable.html(tabledata);
+			}
 
-	var price = model.getDishPrice(bigDish.id)*model.getNumberOfGuests();
-	this.dishPrice.html(price);
+		var price = model.getDishPrice(bigDish.id)*model.getNumberOfGuests();
+		this.dishPrice.html(price);
+	}
 
 	this.showMenu = function() {
 		var menutext = model.getFullMenu();
@@ -52,4 +44,12 @@ var View4 = function (container, model) {
 			this.fullMenu.html(menu);
 		}
 	}
+
+	this.pending = function() {
+		
+	}
+
+	id = //det vi får in
+	this.showBigDish(id);
+	this.pending(id)
 }
