@@ -17,7 +17,7 @@ var View4 = function (container, model) {
 		this.showMenu();
 	}
 
-	this.showBigDish = function() {
+	this.showBigDish = function(){
 		var bigDish = model.getDish(model.getCurrentDishID());
 		var bigImg = "";
 		bigImg += "<img src='images/" + bigDish.image + "'class='storbild'>";

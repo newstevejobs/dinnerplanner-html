@@ -610,12 +610,19 @@
 	text-align: center;
 	padding-top:0.8vh;
 	font-weight: bold;
-	display: flex;
-	align-items: center;
 	text-align: auto;
 }
-.undertext{
-	width:12.3vw;
+
+#dishPrice{
+	display: flex;
+	align-items: center;
+}
+
+#prices{
+	width: 12.3vw;
+}
+
+.undertext5{
 	height:10vh;
 	display:inline-block;
 	margin-right:7px;
@@ -646,9 +653,11 @@
 
 #summan{
 	text-align: center;
+	padding-left: 5vw;
 }
 
 #streck{
+
 	border-bottom-style: solid;
 	margin-left: 22vw;
 	width: 50vw;

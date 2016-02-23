@@ -9,10 +9,11 @@ var Controller4 = function(view, model ) {
 	});
 
 	view.confirmButton.click(function(){
-		model.addDishToMenu(1) //HÄR SKA ID SKICKAS IN
-		model.addDishToMenu(100)
-		model.addDishToMenu(201)
+		model.addDishToMenu(model.getCurrentDishID()); //HÄR SKA ID SKICKAS IN
 		$("#confirm_dinner").prop("disabled",false); //TO ENABLE "CONFIRM DINNER"
+		$("#view4").hide();
+		$("#view3").show();
+		
 	});
 
 }

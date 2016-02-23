@@ -11,10 +11,10 @@ $(function() {
 	var controller1 = new Controller1(view1, model);
 	
 	var view2 = new View2($("#view2"), model);
-	var controller2 = new Controller2(view2, model);
+	window.controller2 = new Controller2(view2, model);
 	
 	var view3 = new View3($("#view3"), model);
-	var controller3 = new Controller3(view3, model);
+	window.controller3 = new Controller3(view3, model);
 	
 	var view4 = new View4($("#view4"), model);
 	var controller4 = new Controller4(view4, model);

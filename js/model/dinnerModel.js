@@ -7,6 +7,7 @@ var DinnerModel = function() {
 	this.currentDishID = 1; //ID för den aktuella rätten
 	this.selectedMenu = []; //lista med valda rätter
 	var obsArray = [];
+	this.searchTerm = "";
 
 	this.addObserver = function(observer) {
 		obsArray.push(observer);
@@ -33,7 +34,7 @@ var DinnerModel = function() {
 
 	this.setCurrentDishID = function(id) {
 		this.currentDishID = id; //ändrar värdet på guest till indatan.
-		notifyObservers(Object);
+		notifyObservers();
 	}
 
 	// should return 
@@ -108,9 +109,9 @@ var DinnerModel = function() {
 		var menuDishes = this.getFullMenu();
 		for(i in menuDishes){
 			if(menuDishes[i].id == id) {
-				menuDishes.splice(i);
-				notifyObservers(menuDishes[i]);
+				menuDishes.splice(i,1);
 			}
+			notifyObservers();
 		}
 	}
 

@@ -15,6 +15,18 @@ var Controller2 = function(view, model ) {
 		$("#view3").hide();
 		$("#view4").hide();
 		$("#view6").hide();
-		$("#view5").show();		
+		$("#view5").show();
+		view.update();
+
 	});
+
+	this.removeDish = function() {
+
+	view.removeButton.click(function(){
+				model.removeDishFromMenu(this.getAttribute("id"));
+				//alert(this.getAttribute("id"));
+				view.update();
+			});
+		}
+
 }
