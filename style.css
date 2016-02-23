@@ -5,7 +5,6 @@
 	border-style: solid;
 	background-color: #D8D8D8;
 	height: 20vh;
-	width: 100vw;
 	overflow: hidden;
 }
 
@@ -14,7 +13,6 @@
 	border-style: solid;
 	background-color: rgba(255,238,178,0.6);
 	height: 20vh;
-	width: 100vw;
 	overflow: hidden;
 }
 
@@ -28,7 +26,6 @@
 	margin-left: 5vh;
 	font-weight: bold;
 	border: none;
-	background-color: none;	
 }
 
 #slogan{
@@ -119,7 +116,7 @@
 
 .vansterspalt {
 	background-color: white;
-	height:100vh;
+	height:80vh;
 	width: 24%;
 	border-style: solid;
 	border-color: black;
@@ -169,8 +166,8 @@
 
 .box{
 	background-color: white;
-	width:13%;
-	height:5.4%;
+	width:3.5vw;
+	height:6.5vh;
 	border-color: black;
 	border-style: solid;
 	position:absolute;
@@ -185,9 +182,9 @@
 
 .rekt{
 	background-color: white;
-	width:13%;
-	height:3%;
-	margin-left:36%;
+	width:3.5vw;
+	height:4vh;
+	margin-left:38%;
 	border-color: black;
 	position:absolute;
 	z-index: 10;
@@ -241,7 +238,6 @@
 /* STORRUTA */
 .storruta {
 	background-color: white;
-	height: 100vh;
 	width: 76%;
 	overflow: hidden;
 	float:right;
@@ -391,7 +387,6 @@
 
 /* STORRUTA */
 .center_left {
-	height: 82vh;
 	width: 58vw;
 	float:left;
 	padding-left: 26vw;	
@@ -401,7 +396,7 @@
 /*Bilden*/
 .storbild {
 	width: 32vw;
-	height: 55vh;
+	height: 37vh;
 }
 
 #description {
@@ -432,10 +427,12 @@
 }
 
 .center_right {
-	height: 85vh;
-	margin-top: -1vh;
+	height: 65vh;
+	margin-top: -2.2vh;
 	margin-left: 60vw;
 	background-color: rgb(255,229,153);
+	border-style: none solid  solid  solid;
+	border-color: black;
 }
 
 .center_right h4 {
@@ -458,7 +455,7 @@
 .table td, .table th {
 	border-top: none !important; 
 
-	padding-left: 4.4vw;
+	padding-left: 4vw;
 }
 
 #confirm_button {
@@ -489,7 +486,6 @@
 
 #urDin{
 	background-color:orange;
-	width: 100vw;
 	height: 15vh;
 	border-style: solid;
 	border-color: black;
@@ -543,8 +539,7 @@
 
 #underruta{
 	background-color: white;
-	width: 100vw;
-	height: 100vh;
+	height: 65vh;
 	border-style: solid;
 	border-color: black;
 	border-top: 1px;
@@ -648,8 +643,7 @@
 
 #underruta2{
 	background-color: white;
-	width: 100vw;
-	height: 100vh;
+	height: 65vh;
 	border-style: solid;
 	border-color: black;
 	border-top: 1px;
@@ -670,26 +664,24 @@
 	height:50vh;
 	float: right;
 	margin-top: -5vh;
+	margin-left: 1vw;
 
 }
 
 
 #left{
-	width:50vw;
-	height: 100vh;
-	background-color: white;
+	margin-top: 1.6vh;
+	width:45vw;
 	float:left;
 	display: flex;
 	align-items: center;
-	margin-top: 32vh;
 }
 
 
 #right{
 	width:45vw;
-	height: 100vh;
-	background-color: white;
 	float:right;
+	margin-left: 2vw;
 }
 
 .kvadrat1{
@@ -715,10 +707,10 @@
 
 
 .rutor{
-	width:49.6vw;
+	max-width:47vw;
 	height: 48vh;
 	background-color: white;
-	padding-right:10vw;
+	margin-right:5vw;
 	margin-top: 5vh;
 }
 

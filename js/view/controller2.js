@@ -14,6 +14,7 @@ var Controller2 = function(view, model ) {
 		$("#view2").hide();
 		$("#view3").hide();
 		$("#view4").hide();
+		$("#view6").hide();
 		$("#view5").show();		
 	});
 }

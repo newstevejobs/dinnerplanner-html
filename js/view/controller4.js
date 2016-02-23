@@ -10,6 +10,8 @@ var Controller4 = function(view, model ) {
 
 	view.confirmButton.click(function(){
 		model.addDishToMenu(1) //HÄR SKA ID SKICKAS IN
+		model.addDishToMenu(100)
+		model.addDishToMenu(201)
 		$("#confirm_dinner").prop("disabled",false); //TO ENABLE "CONFIRM DINNER"
 	});
 
