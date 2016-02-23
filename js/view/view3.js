@@ -22,11 +22,11 @@ var View3 = function (container, model) {
 			list.push(nummer);
 			}
 
-		for (var i = 0; i<list.length; i++){
-			var idDish = list[i];
+		//for (var i = 0; i<list.length; i++){
+			//var idDish = list[i];
 			
-			var pointer = "pointer" + i;
-			this.pointer = container.find("#" + idDish);
+			//var pointer = "pointer" + i;
+			//this.pointer = container.find("#" + idDish);
 		}
 		return list;
 		

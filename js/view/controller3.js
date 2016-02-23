@@ -1,14 +1,28 @@
 var Controller3 = function(view, model ) {
-
+	//view.showDishes("starter");
 	var list = view.showDishes($('select').val());
 	
 
 
 	$('select').change(function(){
 		list = view.showDishes($('select').val());
-		createListeners(list.length);
+		console.log(list);
+		firstpicture(list);
+		
+		//createListeners(list.length);
 	});
 	
+	
+	var firstpicture = function(list){
+		var first = list[0];
+		console.log(first);
+
+		view.pointer2.click(function(){
+			alert("hej");
+		});
+
+	}
+
 	var createListeners = function(num) {
 		for (var i = 0; i<num; i++){
 			var pointer = 'pointer' + i;
