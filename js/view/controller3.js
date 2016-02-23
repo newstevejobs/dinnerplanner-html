@@ -12,7 +12,7 @@ var Controller3 = function(view, model ) {
 			view.chosenDish.click(function(){
 				$("#view3").hide();
 				$("#view4").show();
-				
+				model.setCurrentDishID(idDish);
 			});
 		}
 

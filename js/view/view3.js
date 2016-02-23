@@ -10,7 +10,7 @@ var View3 = function (container, model) {
 	model.addObserver(this);
 
 	this.update = function(obj) {
-
+		this.getCurrentDishID();
 	}
 
 	//View 3 där småkvadraterna raddas upp för main, starter lr dessert!
