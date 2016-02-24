@@ -7,6 +7,7 @@ var View4 = function (container, model) {
 	this.confirmButton = container.find("#confirm_button")
 	this.dishPrice = container.find("#dish_price");
 	this.fullMenu = container.find(".titta");
+	this.getPrep = container.find("#preperations");
 
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	model.addObserver(this);
@@ -33,6 +34,9 @@ var View4 = function (container, model) {
 
 		var price = model.getDishPrice(bigDish.id)*model.getNumberOfGuests();
 		this.dishPrice.html(price);
+
+		var prep = "<p>" + bigDish.description + "</p>";
+		this.getPrep.html(prep);
 	}
 
 	this.showMenu = function() {
