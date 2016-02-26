@@ -9,22 +9,22 @@ var Controller2 = function(view, model ) {
 	});
 
 	$("#confirm_dinner").prop("disabled",true); //TO DISABLE "CONFIRM DINNER"
+	
+	var view5 = new View5($("#view5"), model);
+	var controller5 = new Controller5(view5, model);
 
 	view.confirmDinner.click(function(){
 		$("#view2").hide();
 		$("#view3").hide();
 		$("#view4").hide();
-		$("#view6").hide();
 		$("#view5").show();
 		view.update();
-
 	});
 
 	this.removeDish = function() {
 
 	view.removeButton.click(function(){
 				model.removeDishFromMenu(this.getAttribute("id"));
-				//alert(this.getAttribute("id"));
 				view.update();
 			});
 		}

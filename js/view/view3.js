@@ -20,14 +20,6 @@ var View3 = function (container, model) {
 		
 	this.buttons = container.find(".dishButton");
 
-	this.firstError = function() {
-		try {
-			controller3.showNew();
-
-			}
-			catch(err) {}
-		}
-	this.firstError();
 		}
 
 	this.searchDishes  = function() {
@@ -42,14 +34,6 @@ var View3 = function (container, model) {
 		}
 		this.buttons = container.find(".dishButton");
 		
-		this.firstError = function() {
-		try {
-			controller3.showNew();
-
-			}
-			catch(err) {}
-		}
-		this.firstError();
 	}
 	}
 

@@ -5,11 +5,14 @@ var View6 = function (container, model) {
 	this.getTitleName1 = container.find(".titlename1");
 	this.getDescription = container.find(".desc");
 
+
 	model.addObserver(this);
 
 	this.update = function(obj) {
 			this.showMenu();
 			this.showPrep();
+			this.numberOfGuests.html(model.getNumberOfGuests());
+			this.totalMenuPrice.html(model.getTotalMenuPrice());
 			}
 
 	this.showMenu = function() {
@@ -41,6 +44,8 @@ var View6 = function (container, model) {
 		}
 		}
 	}
+
+
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	this.totalMenuPrice.html(model.getTotalMenuPrice());
 	

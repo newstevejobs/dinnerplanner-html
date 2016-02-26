@@ -49,9 +49,6 @@ var View4 = function (container, model) {
 		}
 	}
 
-	this.pending = function() {
-		
-	}
 
 	this.showBigDish(model.getCurrentDishID());
 }
