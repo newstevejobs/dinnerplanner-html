@@ -2,10 +2,16 @@
 var Controller2 = function(view, model ) {
 	view.plusButton.click(function(){
 	model.setNumberOfGuests(model.getNumberOfGuests() + 1);
+	//för att det skall gå att ändra antal gäster när man är inne på en rätt
+	var valdRatt = model.getCurrentDishID();
+	model.getDish(valdRatt);
 	});
 
 	view.minusButton.click(function(){
 	model.setNumberOfGuests(model.getNumberOfGuests() - 1);
+	//för att det skall gå att ändra antal gäster när man är inne på en rätt
+	var valdRatt = model.getCurrentDishID();
+	model.getDish(valdRatt);
 	});
 
 	$("#confirm_dinner").prop("disabled",true); //TO DISABLE "CONFIRM DINNER"
@@ -24,7 +30,7 @@ var Controller2 = function(view, model ) {
 	this.removeDish = function() {
 
 	view.removeButton.click(function(){
-				model.removeDishFromMenu(this.getAttribute("id"));
+				model.removeDish(this.getAttribute("id"));
 				view.update();
 			});
 		}

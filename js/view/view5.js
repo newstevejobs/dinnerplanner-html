@@ -26,9 +26,9 @@ var View5 = function (container, model) {
 			this.dishPrice.html(price);
 		} else {
 		for (var i=0; i<menu.length; i++){
-			food +="<div class='kvadrat'><img src='images/" + menu[i].image + "' class='bild'><div class='dishname5'>" + menu[i].name + "</div></div>";
+			food +="<div class='kvadrat'><img src='" + menu[i].ImageURL + "' class='bild'><div class='dishname5'>" + menu[i].Title + "</div></div>";
 			this.fullMenu.html(food);
-			price += "<div class='undertext5' id='prices'>" + model.getDishPrice(menu[i].id)*model.getNumberOfGuests() + "kr</div>";
+			price += "<div class='undertext5' id='prices'>" + Math.round(model.getDishPrice(menu[i])) * model.getNumberOfGuests() + "kr</div>";
 			this.dishPrice.html(price);
 		}
 		}

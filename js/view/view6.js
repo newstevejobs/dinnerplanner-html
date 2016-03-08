@@ -24,7 +24,7 @@ var View6 = function (container, model) {
 			this.getTitleName1.html(choicie);
 		} else {
 		for (var i=0; i<choice1.length; i++){
-			choicie += "<div class='rutor'><img src='images/" + choice1[i].image + "' class='bild1'><div class='text'><h1 id='big'>" + choice1[i].name  + "</h1>Lorem ipsum dolor...</div></div>";
+			choicie += "<div class='rutor'><img src='" + choice1[i].ImageURL + "' class='bild1'><div class='text'><h1 id='big'>" + choice1[i].Title  + "</h1>"+ choice1[i].Description + "</div></div>";
 			this.getTitleName1.html(choicie);
 		}
 		}
@@ -39,7 +39,7 @@ var View6 = function (container, model) {
 			this.getDescription.html(choicie2);
 		} else {
 		for (var i=0; i<choice2.length; i++){
-			choicie2 += "<div class='rutor'><h2 id='big'>PREPERATIONS</h2><p>" + choice2[i].description + "</p></div>";
+			choicie2 += "<div class='rutor'><h2 id='big'>PREPERATIONS</h2><p>" + choice2[i].Instructions + "</p></div>";
 			this.getDescription.html(choicie2);
 		}
 		}

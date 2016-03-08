@@ -5,6 +5,7 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 	this.guests = 4; 		//attribut till klassen som har värdet gäster
 	this.currentDishID = 1; //ID för den aktuella rätten
+	var cdo = ["hej"];
 	this.selectedMenu = []; //lista med valda rätter
 	var obsArray = [];
 	this.searchTerm = "";
@@ -18,6 +19,17 @@ var DinnerModel = function() {
 		for (i in obsArray) {
 			obsArray[i].update(Object);
 		}
+	}
+
+	var setCurrentDishObject = function(object){
+		cdo = getCurrentDishObject();
+		nylista = cdo.splice(1,1);
+		nylista.push(object);
+		cdo = nylista;
+	}
+
+	var getCurrentDishObject = function(){
+		return cdo;
 	}
 
 	this.setNumberOfGuests = function(num) {
@@ -62,7 +74,7 @@ var DinnerModel = function() {
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
+	/*this.getAllIngredients = function() {
 		//TODO Lab 2
 		allIngredients = [];
 		var allDishes = this.getFullMenu();
@@ -73,86 +85,156 @@ var DinnerModel = function() {
 			}
 		}
 		return allIngredients;
-	}
+	}*/
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 2
 		var guests = this.getNumberOfGuests();
-		var allIngredients = this.getAllIngredients();
+		var menu = this.getFullMenu();
 		var totalCost = 0;
-		for (i in allIngredients) { //itererar genom alla ingredienser på menyn (objekt), och adderar priset till totalCost
-			totalCost += allIngredients[i].price;
+		for (dish in menu) { //itererar genom alla ingredienser på menyn (objekt), och adderar priset till totalCost
+			dishPrice = this.getDishPrice(menu[dish]);
+			totalCost += dishPrice;
 			} 
-		totalCost = totalCost*guests; //multiplicerar totalCost med antalet gäster
-		return totalCost;
+		total = Math.round(totalCost*guests); //multiplicerar totalCost med antalet gäster
+		return total;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
+	this.addDishToMenu = function() {
 		//TODO Lab 2 
 		var menuDishes = this.getFullMenu();
-		var chosenDish = this.getDish(id);
-		for(i in menuDishes){
-			if(menuDishes[i].type == chosenDish.type) {
-				this.removeDishFromMenu(menuDishes[i].id);
+		var dishToAdd = cdo;
+		for (dish in menuDishes){
+			if(menuDishes[dish].Category == dishToAdd[0].Category){
+				this.removeDishFromMenu(menuDishes[dish]);
 			}
 		}
-		menuDishes.push(chosenDish);
-		notifyObservers(Object);
+		this.selectedMenu.push(dishToAdd[0]);
+		notifyObservers();
 	}
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
+	this.removeDishFromMenu = function(object) {
 		//TODO Lab 2
 		var menuDishes = this.getFullMenu();
 		for(i in menuDishes){
-			if(menuDishes[i].id == id) {
+			if(menuDishes[i].RecipeID == object.RecipeID) {
 				menuDishes.splice(i,1);
 			}
 			notifyObservers();
 		}
 	}
 
+	this.removeDish = function(id){
+		var menuDishes = this.getFullMenu();
+		for (i in menuDishes){
+			if(menuDishes[i].RecipeID == id){
+				this.removeDishFromMenu(menuDishes[i]);
+			}
+		}
+	}
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return $(dishes).filter(function(index,dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			$.each(dish.ingredients,function(index,ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
+
+	this.ajaxFunction = function (type, filter){
+		var bas = "http://api.bigoven.com/recipes?api_key=";
+		var nyckel = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+		var antalSok = "&pg=1&rpp=50&any_kw=";
+		try{
+			filter.length; //eftersom att undefined inte har någon längd.
+			var sokOrd = filter;
 		}
-	  	return dish.type == type && found;
-	  });	
+
+		catch(err){ //om det endast är typen vi vill söka på.
+			var sokOrd = type;	
+		}
+		url = bas + nyckel + antalSok + sokOrd;	
+
+		$.ajax({
+        	type: "GET",
+         	dataType: 'json',
+         	cache: false,
+         	url: url, 
+         	beforeSend: function(){
+         		$(".mat").hide();
+         		$("#loadingDishes").show();
+         		$("#loadingDishes").html("I can hear your stomach all the way from here...yummi yummi!");
+         	},
+       		success: function (data) {
+       			window.info = data.Results;
+				notifyObservers(data.Results);
+            },
+         	complete: function(){
+         		if (info.length == 0){
+         			$(".mat").hide();
+            		$("#loadingDishes").show();
+            		$("#loadingDishes").html("yummi yummi you too hungry, get your spelling together and write something eatable!");
+         		}
+            	else{
+            		$("#loadingDishes").hide();
+            		$(".mat").show();
+            	}
+            },
+
+            
+             error: function (jqXHR, exception) {
+		        var msg = '';
+		        if (jqXHR.status === 0) {
+		            msg = 'Not connect.\n Verify Network.';
+		        } else if (jqXHR.status == 404) {
+		            msg = 'Requested page not found. [404]';
+		        } else if (jqXHR.status == 500) {
+		            msg = 'Internal Server Error [500].';
+		        } else if (exception === 'parsererror') {
+		            msg = 'Requested JSON parse failed.';
+		        } else if (exception === 'timeout') {
+		            msg = 'Time out error.';
+		        } else if (exception === 'abort') {
+		            msg = 'Ajax request aborted.';
+		        } else {
+		            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+		        }
+		        alert("mep mep mep " + msg + " mep meeeeep");
+		    },
+
+         });
+	};
+
+	this.getAllDishes = function (type,filter) {
+		this.ajaxFunction(type,filter);
 	}
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
+		var bas = "http://api.bigoven.com/recipe/";
+		var nyckel = "?api_key=H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+		var antal = "&pg=1&rpp=1";
+		url = bas + id + nyckel + antal;	
+
+		$.ajax({
+        	type: "GET",
+         	dataType: 'json',
+         	cache: false,
+         	url: url,
+         	success: function (data){
+            	setCurrentDishObject(data);
+            	notifyObservers(data);
+            },
+         });
 	}
 
 	//Returns the price of the dish (all the ingredients multiplied by number of guests).
-	this.getDishPrice = function(id) {
-		var chosenDish = this.getDish(id);
+	this.getDishPrice = function(object) {
+		var dish = object;
 		var dishCost = 0;
-		for (i in chosenDish.ingredients) { //itererar genom alla ingredienser på rätte (objekt), och adderar priset till totalCost
-			dishCost += chosenDish.ingredients[i].price;
+		for (i in dish.Ingredients) { //itererar genom alla ingredienser på rätte (objekt), och adderar priset till totalCost
+			dishCost += dish.Ingredients[i].Quantity;
 			} 
+		Math.round(dishCost);
 		return dishCost;
 	}
 
