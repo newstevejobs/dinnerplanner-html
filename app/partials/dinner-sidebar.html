@@ -11,17 +11,54 @@ this with Total price of the menu -->
     <div class ="bodyn">
       <div class="vansterspalt">
         <div id="guests">
+
+
+        <!-- My dinner och antal gäster! -->
           <p class="regular" id="bigger">My Dinner</p>
             <p class="regular">People </p>
               <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/>
         </div>
+
+
+        <!-- Gråa rutan -->
         <div id="dishname">
-          <p class="regular">Dish Name<span id="v2right">Cost</span></p>
+          <p class="regular">Dish Name
+          <span id="v2right">Cost</span>
+          </p>
         </div>
+
+        <!-- Här skall rätterna på den valda menun att skrivas ut! -->
         <div id="cash">
-          <p class="titta"></p>
+          <p class="titta">
+            <ul>
+              <li ng-repeat="dish in menu">
+                  {{dish.Title}}
+              <div class='row'>
+                <div class='col-md-1'>
+                  <button class='remove' id='"{{dish.RecipeID}}"'>
+                  X
+                  </button>
+                </div>
+                  <div class='col-md-4'>
+                  {{dish.Title}} 
+                  </div>
+                  <div class='col-md-3'>"
+                   {{price}} x {{numberOfGuests}}
+                  </div>
+                  <div class='col-md-3 ri'>"
+                    {{price}} * {{numberOfGuests}}
+                  </div>
+              </div>"
+              </li>
+            </ul>
+          </p>
+
+
           <p id="line1"></p>
-          <p id="v2right">SEK <span id="totalMenuPrice"></span></p>
+          <p id="v2right">SEK 
+          <span id="totalMenuPrice"></span></p>
+
+          <!-- confirm Knappen! -->
           <a href="#/overview" class="btn btn-primary" id="confirm_dinner"> Confirm Dinner</a>
         </div>
       </div>
