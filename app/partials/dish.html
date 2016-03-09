@@ -3,3 +3,28 @@
 
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
+  <div>
+    <div class="center_left">
+      <h2>{{cdo.Title}}</h2>
+      <span id="picspace"></span> 
+      <p id="description">{{cdo.Description}}</p>
+      <button class="welcome_text" id="back_button">back to Select Dish</button>
+      <h3 id="prep">PREPERATION</h3>
+    </div>
+
+    <div class="center_right">
+      <h4>INGREDIENTS FOR <span class="numberOfGuests"></span> PEOPLE</h4>
+        <table class="table" id="ingredients"> 
+          <tbody> 
+            <span id="ingritable"></span> 
+          </tbody>
+        </table>
+        <table class="table" id="sum">
+          <tbody>
+            <tr>
+              <td><button class="welcome_text" id="confirm_button">Confirm Dish</button></td><td> </td><td>SEK</td><td id="dish_price"></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>

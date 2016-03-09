@@ -9,8 +9,7 @@
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
 var dinnerPlannerApp = angular.module('dinnerPlanner', ['ngRoute','ngResource']);
-//test
-
+//jdsgksd
 
 // Here we configure our application module and more specifically our $routeProvider. 
 // Route provider is used to tell angular to load a specific partial (view) for an individual
@@ -49,6 +48,16 @@ dinnerPlannerApp.config(['$routeProvider',
         templateUrl: 'partials/dish.html',
         controller: 'DishCtrl'
       }).
+      /* FUNKTIONER FÖR OVERVIEW OCH PREPARATION!!!
+      when('/overview/', {
+        templateUrl: 'partials/overview.html',
+        controller: 'OverviewCtrl'
+      }).
+      when('/preparation/', {
+        templateUrl: 'partials/preparation.html',
+        controller: 'PreparationCtrl'
+      }).
+      */
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
         redirectTo: '/home'

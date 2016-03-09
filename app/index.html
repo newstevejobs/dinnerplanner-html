@@ -6,6 +6,7 @@ which module to associate the app with. In app.js we create the "dinnerPlanner" 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
@@ -30,6 +31,10 @@ which module to associate the app with. In app.js we create the "dinnerPlanner" 
   <body>
     <!-- Here in index.html you should put only the layout that is shared among all the screens (e.g. header
     ,footer, etc.). The rest of the view specific layout will go into the html partials (check partials folder) -->
+    <div id="startheader">
+        <h1 class="banner" id="title">
+        HOMELETTE<small class="banner" id="slogan">From the best chefs in the world directly into your kithen</small></h1>
+    </div>
 
     <!-- ng-view Angular directive is where the partials will be loaded. app.js configures the $routingProvider
     where you specify which partial should be loaded when. -->
