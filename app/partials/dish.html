@@ -6,10 +6,11 @@ Instructions, Ingredients and total cost. -->
   <div>
     <div class="center_left">
       <h2>{{cdo.Title}}</h2>
-      <span id="picspace"></span> 
+      <img class="storbild" ng-src="{{cdo.ImageURL}}"/>
       <p id="description">{{cdo.Description}}</p>
       <button class="welcome_text" id="back_button">back to Select Dish</button>
       <h3 id="prep">PREPERATION</h3>
+      <p>{{cdo.Instructions}}</p>
     </div>
 
     <div class="center_right">
