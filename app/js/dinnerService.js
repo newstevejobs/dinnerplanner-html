@@ -17,8 +17,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.cdo = ["hej"];
   this.selectedMenu = []; //lista med valda rätter
   this.searchTerm = "";
-  this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:'H9n1zb6es492fj87OxDtZM9s5sb29rW3'});
-  this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:'H9n1zb6es492fj87OxDtZM9s5sb29rW3'});
+  this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:'sV1fPGQKrO0b6oUYb6w9kLI8BORLiWox'});
+  this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:'sV1fPGQKrO0b6oUYb6w9kLI8BORLiWox'});
 
 
   this.setCurrentDishObject = function(object){
@@ -101,16 +101,15 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
-  this.addDishToMenu = function() {
+  this.addDishToMenu = function(obj) {
     //TODO Lab 2 
     var menuDishes = this.getFullMenu();
-    var dishToAdd = cdo;
     for (dish in menuDishes){
-      if(menuDishes[dish].Category == dishToAdd[0].Category){
+      if(menuDishes[dish].Category == obj.Category){
         this.removeDishFromMenu(menuDishes[dish]);
       }
     }
-    this.selectedMenu.push(dishToAdd[0]);
+    this.selectedMenu.push(obj);
   }
 
   //Removes dish from menu
@@ -143,7 +142,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     for (i in dish.Ingredients) { //itererar genom alla ingredienser på rätte (objekt), och adderar priset till totalCost
       dishCost += dish.Ingredients[i].Quantity;
       } 
-    Math.round(dishCost);
     return dishCost;
   }
 

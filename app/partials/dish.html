@@ -6,25 +6,36 @@ Instructions, Ingredients and total cost. -->
   <div>
     <div class="center_left">
       <h2>{{cdo.Title}}</h2>
-      <span id="picspace"></span> 
+      <img class="storbild" ng-src="{{cdo.ImageURL}}"/> 
       <p id="description">{{cdo.Description}}</p>
-      <button class="welcome_text" id="back_button">back to Select Dish</button>
+      <a ng-href="#/search"> <button class="welcome_text" id="back_button">back to Select Dish</button></a>
+     
       <h3 id="prep">PREPERATION</h3>
+      <p>{{cdo.Instructions}}</p>
     </div>
 
     <div class="center_right">
-      <h4>INGREDIENTS FOR <span class="numberOfGuests"></span> PEOPLE</h4>
-        <table class="table" id="ingredients"> 
-          <tbody> 
-            <span id="ingritable"></span> 
-          </tbody>
-        </table>
-        <table class="table" id="sum">
-          <tbody>
-            <tr>
-              <td><button class="welcome_text" id="confirm_button">Confirm Dish</button></td><td> </td><td>SEK</td><td id="dish_price"></td>
-            </tr>
-          </tbody>
-        </table>
+      <h4>INGREDIENTS FOR {{getNumberOfGuests()}} PEOPLE</h4>
+
+            <ul style="list-style-type:none">
+            <div class="row">
+              <li ng-repeat="dishIngri in ingredients">
+              <!--{{dishIngri.Name}}-->
+              
+              <div class="col-sm-2">{{dishIngri.Quantity * getNumberOfGuests()}}</div> 
+              <div class="col-sm-2">{{dishIngri.Unit}}</div>
+              <div class="col-sm-4">{{dishIngri.Name}}</div>
+              <div class="col-sm-2">SEK</div>
+              <div class="col-sm-1">{{dishIngri.Quantity * getNumberOfGuests()}}</div>
+                         
+              </li> </div>
+              <p> </p>
+              <p> </p>
+              <div class="row">
+              <div class="col-md-8"> <button ng-click="add()" class="welcome_text" id="confirm_button">Confirm Dish</button>{{status}}</div>
+              <div class="col-md-2">SEK</div>
+              <div class="col-md-2">{{getDishPrice(cdo) * getNumberOfGuests()}}</div>
+              </div>
+            </ul>
     </div>
   </div>

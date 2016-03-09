@@ -19,9 +19,28 @@ this with Total price of the menu -->
           <p class="regular">Dish Name<span id="v2right">Cost</span></p>
         </div>
         <div id="cash">
+<<<<<<< Updated upstream
           <p class="titta"></p>
           <p id="line1"></p>
           <p id="v2right">SEK <span id="totalMenuPrice"></span></p>
+=======
+          <p class="titta">
+            <ul style="list-style-type: none">
+              <li ng-repeat="dish in menu">
+              <div class='row'>
+              <div class='col-md-1'><button class='remove' id='"{{dish.RecipeID}}"'>X</button></div>
+              <div class='col-md-4'>{{dish.Title}}</div>
+              <div class='col-md-3'> {{getNumberOfGuests()}}x{{getDishPrice(dish)}}</div>
+              <div class='col-md-3 ri'>{{getNumberOfGuests()*getDishPrice(dish)}}</div>
+              </div>
+              </li>
+            </ul>
+          </p>
+          <p id="line1"></p>
+          <p id="v2right">SEK </p>
+
+          <!-- confirm Knappen! -->
+>>>>>>> Stashed changes
           <a href="#/overview" class="btn btn-primary" id="confirm_dinner"> Confirm Dinner</a>
         </div>
       </div>

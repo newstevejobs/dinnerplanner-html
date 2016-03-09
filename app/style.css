@@ -409,7 +409,11 @@
 
 /* ---------------------------------------VIEW 4 START------------------------------------------ */
 
-
+.row {
+	min-height: 8vh;
+	max-height: 65vh;
+	overflow: auto;
+}
 
 /* STORRUTA */
 .center_left {
@@ -453,7 +457,7 @@
 }
 
 .center_right {
-	height: 65vh;
+	height: 70vh;
 	margin-top: -2.2vh;
 	margin-left: 60vw;
 	background-color: rgb(255,229,153);
@@ -481,7 +485,6 @@
 .table td, .table th {
 	border-top: none !important; 
 
-	padding-left: 4vw;
 }
 
 #confirm_button {
