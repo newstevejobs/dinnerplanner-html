@@ -716,17 +716,19 @@
 
 #left{
 	margin-top: 1.6vh;
-	width:45vw;
 	float:left;
-	display: flex;
-	align-items: center;
 }
 
 
 #right{
 	width:45vw;
 	float:right;
-	margin-left: 2vw;
+	margin-top: -0.5vh;
+}
+
+p.ng-binding {
+	max-height: 33vh;
+    overflow: auto;
 }
 
 .kvadrat1{
@@ -752,7 +754,7 @@
 
 
 .rutor{
-	max-width:47vw;
+	max-width:40vw;
 	height: 48vh;
 	background-color: white;
 	margin-right:5vw;

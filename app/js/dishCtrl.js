@@ -36,6 +36,15 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
 catch (err){
 }
 
+//EN INGREDIENTS PRIS
+ try{
+    $scope.getIngriPrice = function(obj){
+    return Dinner.getIngriPrice(obj);
+  }
+	}
+catch (err){
+}
+
 //HELA MENYNS PRIS
   try{
   $scope.getTotalMenuPrice = function(){
@@ -52,5 +61,5 @@ $scope.menu = Dinner.getFullMenu();
   $scope.getFullMenu = function(){
     return Dinner.getFullMenu();
     } 
-
+    
 });

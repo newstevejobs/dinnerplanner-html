@@ -21,18 +21,18 @@ Instructions, Ingredients and total cost. -->
             <div class="row">
               <li ng-repeat="dishIngri in ingredients">
               <!--{{dishIngri.Name}}-->
-              
-              <div class="col-sm-2">{{dishIngri.Quantity * getNumberOfGuests()}}</div> 
+        
+              <div class="col-sm-1">{{getIngriPrice(dishIngri)}}</div> 
               <div class="col-sm-2">{{dishIngri.Unit}}</div>
-              <div class="col-sm-4">{{dishIngri.Name}}</div>
+              <div class="col-sm-5">{{dishIngri.Name}}</div>
               <div class="col-sm-2">SEK</div>
-              <div class="col-sm-1">{{dishIngri.Quantity * getNumberOfGuests()}}</div>
+              <div class="col-sm-2">{{getIngriPrice(dishIngri)}}</div>
                          
               </li> </div>
               <p> </p>
               <p> </p>
               <div class="row">
-              <div class="col-md-8"> <button ng-click="add()" class="welcome_text" id="confirm_button">Confirm Dish</button>{{status}}</div>
+              <div class="col-md-8">  <a ng-href="#/search"> <button ng-click="add()" class="welcome_text" id="confirm_button">Confirm Dish</button></a>{{status}}</div>
               <div class="col-md-2">SEK</div>
               <div class="col-md-2">{{getDishPrice(cdo) * getNumberOfGuests()}}</div>
               </div>
