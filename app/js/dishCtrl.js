@@ -8,31 +8,49 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
 	Dinner.Dish.get({id:$routeParams.dishId},function(data){
     	$scope.cdo=data;
     	$scope.ingredients=data.Ingredients;
-    	console.log($scope.ingredients);
     	
    	},function(data){
     	$scope.status = "There was an error";
    	});
 
+//NUMBER OF GUESTS
  $scope.getNumberOfGuests = function() {
     return Dinner.getNumberOfGuests();
   }
   
+
+
  $scope.add = function() {
    $scope.status = "Adding dish to menu...";
    Dinner.addDishToMenu($scope.cdo);
-   console.log(Dinner.getFullMenu());
    $scope.status = "Dish added to menu!";
    };
 
-  try{
 
+//EN RÄTTS PRIS
+  try{
     $scope.getDishPrice = function(obj){
     return Dinner.getDishPrice(obj);
   }
 	}
 catch (err){
-	console.log(err);
 }
-   
+
+//HELA MENYNS PRIS
+  try{
+  $scope.getTotalMenuPrice = function(){
+    return Dinner.getTotalMenuPrice();
+  };
+}
+  catch(err){
+  }
+
+
+//FÅ HELA MENYN
+$scope.menu = Dinner.getFullMenu();
+
+  $scope.getFullMenu = function(){
+    return Dinner.getFullMenu();
+    } 
+
 });

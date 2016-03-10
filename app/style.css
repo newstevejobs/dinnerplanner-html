@@ -1,5 +1,5 @@
 /* ---------------------------------------VIEW 1 START------------------------------------------ */
-/* HEADER */
+/* HEADER yeah*/
 #header{
 	border-color: black;
 	border-style: solid;
@@ -638,7 +638,7 @@
 }
 
 #Vunder{
-  margin-left:20.5vw;
+  margin-left:6vw;
 }
 
 #totalt{
@@ -673,6 +673,13 @@
 #knepp{
 	margin-left: 40vw;
 }
+
+#v5{
+	align-items: center;
+	display: flex;
+	margin-left: 18vw;
+}
+
 
 
 /* ---------------------------------------VIEW 5 SLUT------------------------------------------- */

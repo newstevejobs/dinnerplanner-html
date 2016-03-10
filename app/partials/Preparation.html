@@ -1,0 +1,35 @@
+
+    <div id="urDin">My dinner: {{getNumberOfGuests()}} people 
+    <a href ="#/search"><button class="welcome_text" id="go_back">Go back and change</button></a></div>
+    <div id ="underruta2">
+
+
+    <ul style="list-style-type: none">
+    <li ng-repeat="dish in menu">
+
+      <div id="left">
+      
+
+<div class='rutor'>
+<img ng-src='{{dish.ImageURL}}' class='bild1'>
+<div class='text'>
+<h1 id='big'>{{dish.Title}}</h1>
+{{dish.Description}}
+</div>
+</div>
+
+      </div>
+
+      <div id="right">
+      <div class='rutor'>
+      <h2 id='big'>PREPERATIONS</h2>
+      <p>{{dish.Instructions}}</p></div>
+      </div>
+
+
+    </li>
+    </ul>
+    
+
+    </div>
+  

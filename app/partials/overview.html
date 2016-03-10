@@ -1,0 +1,21 @@
+<div>
+    <div id="urDin">My dinner: {{getNumberOfGuests()}} people  
+    <a ng-href="#/search"><button class="welcome_text" id="go_back">Go back and change</button></a></div>
+    <div id ="underruta">
+        <div id="capture">
+
+        <ul id="v5" style="list-style-type:none">
+              <li ng-repeat="dish in menu">
+            <div class='kvadrat'><img ng-src="{{dish.ImageURL}}" class='bild'><div class='dishname5'>{{dish.Title}}</div></div>
+            <p id="Vunder">{{getDishPrice(dish) * getNumberOfGuests()}}</p>
+
+            </li>
+            </ul>
+          <div id="sista">
+            <div id="totalt">TOTAL: {{getTotalMenuPrice()}} SEK</div>
+          </div>
+        </div>
+        <div id="streck"></div>
+    <div id="knepp"> <a ng-href="#/preparation"><button class="welcome_text" id="print">Print full recipe</button></a></div>
+    </div>
+</div>

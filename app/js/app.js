@@ -48,16 +48,14 @@ dinnerPlannerApp.config(['$routeProvider',
         templateUrl: 'partials/dish.html',
         controller: 'DishCtrl'
       }).
-      /* FUNKTIONER FÖR OVERVIEW OCH PREPARATION!!!
       when('/overview/', {
         templateUrl: 'partials/overview.html',
-        controller: 'OverviewCtrl'
+        controller: 'DishCtrl'
       }).
       when('/preparation/', {
-        templateUrl: 'partials/preparation.html',
-        controller: 'PreparationCtrl'
+        templateUrl: 'partials/Preparation.html',
+        controller: 'DishCtrl'
       }).
-      */
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
         redirectTo: '/home'

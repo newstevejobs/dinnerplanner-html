@@ -71,23 +71,11 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
     return this.selectedMenu;
   }
 
-  //Returns all ingredients for all the dishes on the menu.
-  /*this.getAllIngredients = function() {
-    //TODO Lab 2
-    allIngredients = [];
-    var allDishes = this.getFullMenu();
-    for (mealnr in allDishes){
-      for (ingri in allDishes[mealnr].ingredients){
-        allIngredients.push(allDishes[mealnr].ingredients[ingri]);
-        //nu läggs namnet på ingrediensen in, om man tar  bort .name så blir det objektet.
-      }
-    }
-    return allIngredients;
-  }*/
 
   //Returns the total price of the menu (all the ingredients multiplied by number of guests).
   this.getTotalMenuPrice = function() {
     //TODO Lab 2
+    try{
     var guests = this.getNumberOfGuests();
     var menu = this.getFullMenu();
     var totalCost = 0;
@@ -97,6 +85,11 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
       } 
     total = Math.round(totalCost*guests); //multiplicerar totalCost med antalet gäster
     return total;
+  }
+  catch(err){
+    var total = 0;
+    return total;
+  }
   }
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -136,13 +129,17 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   //if you don't pass any filter all the dishes will be returned
 
   //Returns the price of the dish (all the ingredients multiplied by number of guests).
-  this.getDishPrice = function(object) {
-    var dish = object;
+  this.getDishPrice = function(obj) {
+    try{
     var dishCost = 0;
-    for (i in dish.Ingredients) { //itererar genom alla ingredienser på rätte (objekt), och adderar priset till totalCost
-      dishCost += dish.Ingredients[i].Quantity;
+    for (i in obj.Ingredients) { //itererar genom alla ingredienser på rätte (objekt), och adderar priset till totalCost
+      dishCost += obj.Ingredients[i].Quantity;
       } 
-    return dishCost;
+      var cost = Math.round(dishCost);
+    return cost;
+  }
+  catch(err){}
+
   }
 
   // Angular service needs to return an object that has all the
